@@ -1,0 +1,13 @@
+{
+  "generatedAt": "2026-08-24T09:10:50.094Z",
+  "totalFiles": 1,
+  "totalPush": 1,
+  "files": [
+    {
+      "name": "区间调度贪心.cpp",
+      "path": "区间调度贪心.cpp",
+      "size": 609,
+      "code": "#include <bits/stdc++.h>\nusing namespace std;\nint main(){\n    int n;\n    cin >> n;\n    int array[n+1][2],tmp[n+1],calc=1,ans=1;\n    for(int i=1;i<=n;i++){\n        cin >> array[i][0];\n        cin >> array[i][1];\n        tmp[i]=i;\n    }\n    for(int i=1;i<=n;i++){\n        int temp=i;\n        for(int j=i+1;j<=n;j++){\n            if(array[tmp[temp]][1] > array[tmp[j]][1])temp=j;\n        }\n        int t = tmp[i];\n        tmp[i] = tmp[temp];\n        tmp[temp] = t;\n    }\n    for(int i=2;i<=n;i++){\n        if(array[tmp[i]][0] >= array[tmp[calc]][1]){ans++;calc=i;}\n    }\n    cout << ans << endl;\n    return 0;\n}\n"
+    }
+  ]
+}
