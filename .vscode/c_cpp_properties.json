@@ -3,9 +3,15 @@
         {
             "name": "Mac",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "${workspaceFolder}\\include\\**"
+
             ],
-            "defines": [],
+            "defines": [
+                "DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
             "compilerPath": "/usr/bin/clang++",
             "cStandard": "c17",
             "cppStandard": "c++17",

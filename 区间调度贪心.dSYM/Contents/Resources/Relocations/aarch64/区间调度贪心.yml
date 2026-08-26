@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     "/Users/relics/algorithm-practice/区间调度贪心"
+relocations:     []
+...

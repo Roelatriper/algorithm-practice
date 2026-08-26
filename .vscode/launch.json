@@ -1,19 +1,18 @@
 {
+    "version": "0.2.0",
     "configurations": [
         {
-            "name": "C/C++: clang++ 生成和调试活动文件",
+            "name": "Debug Current File",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}/${fileBasenameNoExtension}",
-            "args": [],
+            "program": "${fileDirname}/${fileBasenameNoExtension}",  // 指向刚才编译出的同名文件
+            "args": [],                // 如果需要命令行参数，写在这里，如 ["arg1", "arg2"]
             "stopAtEntry": false,
-            "cwd": "${workspaceFolder}",
+            "cwd": "${fileDirname}",
             "environment": [],
             "externalConsole": true,
-            "MIMode": "lldb",
-            "preLaunchTask": "C/C++: clang++ 生成活动文件"
+            "MIMode": "lldb",          // Mac M1 使用 lldb
+            "preLaunchTask": "build current file"  // 关键：调试前自动执行编译任务
         }
-    ],
-    "version": "2.0.0"
-    
+    ]
 }
