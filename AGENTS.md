@@ -32,6 +32,8 @@ A substantive session includes a lesson, exercise attempt, code diagnosis, asses
 3. Update `course/STUDENT_PROFILE.md` only when stable facts or long-term learning needs change.
 4. Summarize the files changed and remind the user to commit/push or sync when the environment does not do so automatically.
 
+If the current assistant can read but cannot edit repository files, output a complete session record and the exact `STATE.md` changes for the user to save through a repository-enabled session. Clearly state that synchronization is pending until those changes are committed and pushed.
+
 Completion means another new session can continue correctly using repository files alone, without access to the previous chat.
 
 ## Repository safety
