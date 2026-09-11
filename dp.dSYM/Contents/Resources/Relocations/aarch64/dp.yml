@@ -1,5 +1,0 @@
----
-triple:          'arm64-apple-darwin'
-binary-path:     '/Users/relics/algorithm-practice/dp'
-relocations:     []
-...

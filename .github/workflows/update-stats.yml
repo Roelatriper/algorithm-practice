@@ -1,12 +1,10 @@
 name: Update Stats
 
 on:
-  push:
-    branches: [ main, master ]
-    paths:
-      - '**.cpp'
-      - '**.md'
-      - 'stats/fetch_data.mjs'
+  workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   update-stats:
@@ -22,12 +20,9 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '18'
-        cache: 'npm'
     
     - name: Generate stats data
-      run: |
-        cd /home/runner/work/algorithm-practice/algorithm-practice
-        node stats/fetch_data.mjs
+      run: node stats/fetch_data.mjs
     
     - name: Commit and push updated stats
       run: |
@@ -37,6 +32,6 @@ jobs:
         if git diff --staged --quiet; then
           echo "No changes to commit"
         else
-          git commit -m "Auto-update stats data $(date '+%Y-%m-%d %H:%M:%S')"
+          git commit -m "Refresh practice stats $(date '+%Y-%m-%d %H:%M:%S')"
           git push
         fi
