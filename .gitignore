@@ -1,0 +1,20 @@
+# macOS
+.DS_Store
+*.dSYM/
+
+# Build products
+.build/
+*.o
+*.obj
+*.out
+*.exe
+
+# Editor state: keep only the shared task
+.vscode/*
+!.vscode/tasks.json
+.idea/
+
+# Temporary files
+*.tmp
+*.log
+*~

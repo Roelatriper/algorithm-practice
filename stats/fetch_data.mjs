@@ -2,7 +2,7 @@
 // 用法：node stats/fetch_data.mjs  （在仓库根目录运行）
 import fs from "node:fs";
 import path from "node:path";
-import { execSync } from "node:child_process";
+import { execFileSync } from "node:child_process";
 
 const ROOT = path.resolve(process.cwd());
 const IGNORE = new Set([".git", "node_modules", "stats"]);
@@ -30,13 +30,15 @@ function collectCpp(dir, base = "") {
 
 const cppFiles = collectCpp(ROOT);
 
-// 上传总次数 = git 提交总数（每次 push 一次记一次）
-// node 子进程不继承 Windows 的 git PATH，用完整路径兼容
-const GIT = process.env.GIT_PATH || "C:\\Program Files\\Git\\cmd\\git.exe";
+// 使用系统 PATH 中的 Git；如有需要可通过 GIT_PATH 覆盖。
+const GIT = process.env.GIT_PATH || "git";
 let totalPush = 0;
 try {
   totalPush = parseInt(
-    execSync(`"${GIT}" rev-list --count HEAD`, { cwd: ROOT, encoding: "utf-8" }).trim(),
+    execFileSync(GIT, ["rev-list", "--count", "HEAD"], {
+      cwd: ROOT,
+      encoding: "utf-8",
+    }).trim(),
     10
   );
 } catch {}
