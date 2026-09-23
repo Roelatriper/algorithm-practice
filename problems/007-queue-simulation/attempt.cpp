@@ -3,13 +3,14 @@
 using namespace std;
 int main(){
     queue<int> ass,output;
-    int n=getchar();
+    int n;
+    cin >> n;
     int tmp_o,tmp_n;
-    for(int i=0;i<n-1;i++){
-        tmp_o=getchar();
+    for(int i=0;i<n;i++){
+        cin >> tmp_o;
         switch(tmp_o){
             case 1:
-                tmp_n=getchar();
+                cin >> tmp_n;
                 ass.push(tmp_n);
                 break;
             case 2:
@@ -18,12 +19,14 @@ int main(){
             case 3:
                 if(!ass.empty()){
                     output.push(ass.front());
-                }
+                }else output.push(-1);
                 break;
         }
     }
-    for(int i=0;i<static_cast<int>(output.size());i++){
-        cout << output.front() << " ";
+    int tmp=static_cast<int>(output.size());
+    // if(tmp==0){cout << "-1" << endl;return 0;}
+    for(int i=0;i<tmp;i++){
+        cout << output.front() << "\n";
         output.pop();
     }
     return 0;
