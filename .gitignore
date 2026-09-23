@@ -18,3 +18,12 @@
 *.tmp
 *.log
 *~
+
+# Extensionless compiled binaries (gcc/clang default output)
+/attempt
+/tmp
+/dp
+/rewrite-*
+/problems/**/attempt
+/problems/**/stack-version
+/problems/**/rewrite-*
