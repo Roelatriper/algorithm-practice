@@ -11,7 +11,8 @@ Before teaching, answering an algorithm question, selecting exercises, or assess
 1. Read `course/STATE.md` and `course/STUDENT_PROFILE.md` completely.
 2. Read `course/TEACHING_PROTOCOL.md` for tutoring and assessment behavior.
 3. Read the relevant part of `course/CURRICULUM.md`, the current lesson, recent session records, and the student's relevant attempt.
-4. State the current lesson and immediate objective briefly, then continue from the recorded state instead of restarting the curriculum.
+4. Read every open proposal in `course/proposals/` and answer its 决策点 (see "Curator handoffs").
+5. State the current lesson and immediate objective briefly, then continue from the recorded state instead of restarting the curriculum.
 
 Use Chinese by default. Teach at the student's current level and explain new C++ syntax when it first appears.
 
@@ -35,6 +36,19 @@ A substantive session includes a lesson, exercise attempt, code diagnosis, asses
 If the current assistant can read but cannot edit repository files, output a complete session record and the exact `STATE.md` changes for the user to save through a repository-enabled session. Clearly state that synchronization is pending until those changes are committed and pushed.
 
 Completion means another new session can continue correctly using repository files alone, without access to the previous chat.
+
+## Curator handoffs
+
+This repository is shared by two assistants through git:
+
+- **Tutor** — runs on the MacBook. Teaches, diagnoses, assesses, and owns `course/STATE.md` and `course/sessions/`.
+- **Curator** — runs on the Windows 宿舍机. Reviews progress, proposes curriculum changes, and does repository maintenance. The curator does not teach and does not write session records, and never decides curriculum on its own.
+
+Curator proposals live in `course/proposals/` as `YYYY-MM-DD-topic.md`, and each ends with a `## 决策点` section listing open questions.
+
+At the start of a session, list `course/proposals/` and read every proposal that has no `## Tutor 决议` section — those are open. Answer each 决策点, then append your decision under `## Tutor 决议` with the date, giving a one-line reason for accept, reject, or defer. An answered proposal is closed; do not re-litigate it unless the student asks. Surface an open proposal to the student only when it affects the current lesson.
+
+The curator may also commit repository maintenance — gitignore rules, removing accidentally tracked build artifacts, fixing broken links. When `git log` shows a commit that is not a teaching session record, check that it did not alter the teaching record before continuing.
 
 ## Repository safety
 
