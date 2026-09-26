@@ -4,14 +4,22 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
-bool down_sort(const int& a,const int& b){
-    return a > b;
-}
+void swap_values(int* x, int* y);       // 交换两个地址指向的数值
+void swap_addresses(int*& x, int*& y);  // 交换两个指针保存的地址
 int main(){
-    vector<int> a;
-    int tmp;
-    while(cin >> tmp){a.push_back(tmp);}
-    sort(a.begin(),a.end(),down_sort);
-    for(int t=0;t<static_cast<int>(a.size());t++){cout << a[t] << " ";}
+    int x=1,y=2,*a=&x,*b=&y;
+    swap_values(&x,&y);
+    cout << x << y << endl;
+    *a=1;*b=2;
+    swap_addresses(a,b);
+    cout << x << y;
     return 0;
+}
+void swap_addresses(int *&x,int *& y){
+    int *tmp=x;
+    x=y;y=tmp;
+}
+void swap_values(int *x,int *y){
+    int tmp;
+    tmp=*x;*x=*y;*y=tmp;
 }
