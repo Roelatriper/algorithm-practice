@@ -18,13 +18,16 @@ int main(){
         cin >> a[i].num >> a[i].score;
     }
     if(enroll%2!=0){
-        tmp=(enroll+1)/2+enroll;
+        tmp=(enroll-1)/2+enroll;
     }else tmp=enroll*1.5;
     sort(a.begin(),a.end(),istrue1);
+    for(int i=tmp;i<n;i++){
+        if(a[tmp-1].score == a[i].score)tmp++;
+        else break;
+    }
     cout << a[tmp-1].score << " " << tmp << endl;
     for(int i=0;i<tmp;i++){
         cout << a[i].num << " " << a[i].score << endl;
     }
-
     return 0;
 }
