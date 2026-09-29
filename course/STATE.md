@@ -51,5 +51,5 @@
 
 ## 最近一次交接
 
-- 记录：`sessions/2026-09-29-1206-macbook-bfs-maze-foundation.md`
-- 下一位教师应先让学生关闭 `solution.cpp`，闭卷重写固定起终点 BFS，再做地图中任意 `S` 到 `T` 的轻微迁移。当前实现通过五类测试，但最高提示等级为 5，不得直接标记掌握。迁移通过后回收快速幂；MST 与最长上升路径仍留到相应专题。
+- 记录：`sessions/2026-09-29-1210-macbook-vscode-external-console.md`
+- MacBook 本机的 VS Code 调试配置已改为使用外部终端，但 `.vscode/launch.json` 被 `.gitignore` 排除，不会跨设备同步；还需由学生在 VS Code 中按 `F5` 现场确认弹窗和输入。课程仍应先让学生关闭 `solution.cpp`，闭卷重写固定起终点 BFS，再做地图中任意 `S` 到 `T` 的轻微迁移。当前实现最高提示等级为 5，不得直接标记掌握。
