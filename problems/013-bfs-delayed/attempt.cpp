@@ -16,11 +16,9 @@ struct node{
 
 int bfs(const mapp &chr,visited &mapps){
     if(a==1 && b==1)return 0;
-    if(dots[0][0]==dots[1][0] && dots[0][1]==dots[1][1])return 0;
     node tmp;
     tmp.x=dots[0][0];tmp.y=dots[0][1];tmp.dest=0;
     pipe.push(tmp);
-    mapps[tmp.x][tmp.y]=1;
     const int dx[4]={1,-1,0,0},dy[4]={0,0,1,-1};
     while(!pipe.empty()){
         tmp=pipe.front();
@@ -29,16 +27,16 @@ int bfs(const mapp &chr,visited &mapps){
             if(tmp.x+dx[i]<0 || tmp.y+dy[i]<0 || tmp.x+dx[i]>=a || tmp.y+dy[i]>=b)continue;
             if(mapps[tmp.x+dx[i]][tmp.y+dy[i]]==1)continue;
             if(chr[tmp.x+dx[i]][tmp.y+dy[i]]!='#'){
-                if(tmp.x+dx[i]==dots[1][0] && tmp.y+dy[i]==dots[1][1]){
-                    tmp.dest++;
-                    return tmp.dest;
-                }else{
+                if(tmp.x+dx[i]!=dots[1][0] && tmp.y+dy[i]!=dots[1][1]){
                     node ttmp;
                     ttmp.x=tmp.x+dx[i];
                     ttmp.y=tmp.y+dy[i];
                     ttmp.dest=tmp.dest+1;
                     mapps[ttmp.x][ttmp.y]=1;
                     pipe.push(ttmp);
+                }else{
+                    tmp.dest++;
+                    return tmp.dest;
                 }
             }else continue;
         }
@@ -51,19 +49,12 @@ int main(){
     mapp chr(a,vector<char>(b));
     visited mapps(a,vector<bool>(b));
     int tmp=0;
-    
     for(int i=0;i<a;i++){
         for(int j=0;j<b;j++){
             cin >> chr[i][j];
-            // if(chr[i][j]=='S' || chr[i][j]=='D'){dots[tmp][0]=i;dots[tmp++][1]=j;}
+            if(chr[i][j]=='S' || chr[i][j]=='D'){dots[tmp][0]=i;dots[++tmp][1]=j;}
             // cout << tmp << endl;
             mapps[i][j]=false;
-        }
-    }
-    
-    for(int i=0;i<2;i++){
-        for(int j=0;j<2;j++){
-            cin >> dots[i][j];
         }
     }
     cout << bfs(chr,mapps) << endl;

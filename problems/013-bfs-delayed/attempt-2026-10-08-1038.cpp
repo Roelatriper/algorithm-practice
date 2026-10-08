@@ -16,7 +16,6 @@ struct node{
 
 int bfs(const mapp &chr,visited &mapps){
     if(a==1 && b==1)return 0;
-    if(dots[0][0]==dots[1][0] && dots[0][1]==dots[1][1])return 0;
     node tmp;
     tmp.x=dots[0][0];tmp.y=dots[0][1];tmp.dest=0;
     pipe.push(tmp);
@@ -51,19 +50,17 @@ int main(){
     mapp chr(a,vector<char>(b));
     visited mapps(a,vector<bool>(b));
     int tmp=0;
-    
+    for(int i=0;i<2;i++){
+        for(int j=0;j<2;j++){
+            cin >> dots[i][j];
+        }
+    }
     for(int i=0;i<a;i++){
         for(int j=0;j<b;j++){
             cin >> chr[i][j];
             // if(chr[i][j]=='S' || chr[i][j]=='D'){dots[tmp][0]=i;dots[tmp++][1]=j;}
             // cout << tmp << endl;
             mapps[i][j]=false;
-        }
-    }
-    
-    for(int i=0;i<2;i++){
-        for(int j=0;j<2;j++){
-            cin >> dots[i][j];
         }
     }
     cout << bfs(chr,mapps) << endl;
