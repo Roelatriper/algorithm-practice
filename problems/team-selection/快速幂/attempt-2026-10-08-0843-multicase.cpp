@@ -12,9 +12,8 @@ int main(){
     vector<ll int> a(t),b(t),p(t);
     for(int i=0;i<t;i++)
         cin >> a[i] >> b[i] >> p[i];
-    ll int result,base,exp;
+    ll int result=1,base,exp;
     for(int i=0;i<t;i++){
-        result=1;
         exp=b[i];base=a[i];
         base%=p[i];
         while(exp!=0){
