@@ -62,7 +62,7 @@ int main(){
         }
     }
     cout << ans.size() << endl;
-    for(int i=0;!ans.empty();i++){
+    for(int i=0;i<static_cast<int>(ans.size())+1;i++){
         cout << ans.front() << endl;
         ans.pop();
     }

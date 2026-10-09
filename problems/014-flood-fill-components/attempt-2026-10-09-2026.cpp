@@ -8,7 +8,7 @@ using namespace std;
 typedef vector<vector<char> > mapp;
 typedef vector<vector<bool> > visited;
 
-int a,b;
+inline int a,b;
 
 struct node{
     int x,y,neigh;
@@ -18,26 +18,26 @@ queue<int> ans;
 int bfs(const mapp& flood,visited& maps){
     node tmp;
     if(a==0 && b==0){return 0;}
-    int dx[5]={1,-1,0,0,0},dy[5]={0,0,1,-1,0};
-    int fin_ans=1;
+    int dx[4]={1,-1,0,0},dy[4]={0,0,1,-1};
+    stack<int> fin_ans;
     while(!s.empty()){
         tmp=s.front();
         s.pop();
         maps[tmp.x][tmp.y]=1;
         int nx,ny;
-        for(int i=0;i<5;i++){
+        for(int i=0;i<4;i++){
             nx=tmp.x+dx[i];ny=tmp.y+dy[i];
             if(nx<0 || ny<0 || nx>=a || ny>=b)continue;
             if(flood[nx][ny]!='#' && maps[nx][ny]==0){
                 node ttmp;
                 ttmp.x=nx;ttmp.y=ny;ttmp.neigh=tmp.neigh+1;
                 s.push(ttmp);
-                fin_ans++;
+                fin_ans.push(ttmp.neigh);
                 maps[nx][ny]=1;
             }
         }
     }
-    return fin_ans;
+    return fin_ans.top();
     
 }
 
@@ -62,7 +62,7 @@ int main(){
         }
     }
     cout << ans.size() << endl;
-    for(int i=0;!ans.empty();i++){
+    for(int i=0;i<static_cast<int>(ans.size());i++){
         cout << ans.front() << endl;
         ans.pop();
     }
