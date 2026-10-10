@@ -16,13 +16,12 @@ int main(){
         ll int base=a[i],exp=b[i],res=1;
         while(exp!=0){
             if(exp%2==0){
-                base%=p[i];
                 exp/=2;base=(base*base)%p[i];
             }else{
                 exp-=1;res*=base;
                 res%=p[i];
             }
-        }fin_ans[i]=res%p[i];
+        }fin_ans[i]=(res*base)%p[i];
     }
     for(ll int i=0;i<t;i++){
         cout << fin_ans[i] << endl;
