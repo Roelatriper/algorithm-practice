@@ -9,9 +9,10 @@
 *.out
 *.exe
 
-# Editor state: keep only the shared task
+# Editor state: keep shared build and debug configurations
 .vscode/*
 !.vscode/tasks.json
+!.vscode/launch.json
 .idea/
 
 # Temporary files

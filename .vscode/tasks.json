@@ -18,6 +18,18 @@
             "problemMatcher": [
                 "$gcc"
             ]
+        },
+        {
+            "label": "build current C++ file for debugging",
+            "type": "process",
+            "command": "${workspaceFolder}/scripts/build-debug.sh",
+            "args": ["${file}"],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
         }
     ]
 }

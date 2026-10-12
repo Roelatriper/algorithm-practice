@@ -1,0 +1,37 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "C++ 普通运行（原编译模式）",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/.build/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "osx": {
+                "MIMode": "lldb"
+            },
+            "preLaunchTask": "build current C++ file"
+        },
+        {
+            "name": "C++ 图形调试（当前文件）",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/.build/gui-debug/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": true,
+            "MIMode": "gdb",
+            "osx": {
+                "MIMode": "lldb"
+            },
+            "preLaunchTask": "build current C++ file for debugging"
+        }
+    ]
+}
