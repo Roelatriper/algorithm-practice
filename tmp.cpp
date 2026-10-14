@@ -6,28 +6,30 @@
 #include <algorithm>
 #define ll long long
 using namespace std;
-struct node{
-    int penalty,score,id;
-};
-bool cmp(const node& a,const node&b){
-    if(a.score==b.score){
-        if(a.penalty==b.penalty){
-            return a.id > b.id;
-        }else return (a.penalty < b.penalty);
-    }else return a.score > b.score;
-}
+
 
 int main(){
-    int a;
-    cin >> a;
-    vector<node> str(a);
-    for(int i=0;i<a;i++){
-        cin >> str[i].score >> str[i].penalty;
-        str[i].id=i+1;
-    }sort(str.begin(),str.end(),cmp);
-    for(int i=0;i<a;i++){
-        cout << str[i].id << endl;
+    int n,q;
+    cin >> n >> q;
+    vector<int> a(n);
+    vector<int> sum(n);
+    for(int i=0;i<n;i++){
+        cin >> a[i];
+        sum[i]=((i!=0)?sum[i-1]:0)+a[i];
     }
+    vector<vector<int> > b(q,vector<int>(2));
+    for(int i=0;i<q;i++){
+        cin >> b[i][0] >> b[i][1];
+        b[i][0]-=1;b[i][1]-=1;
+    }
+    for(int i=0;i<q;i++){
+        if(b[i][0]==b[i][1]){cout << 0 << endl;continue;}
+        if(b[i][0]==0){
+            cout << sum[b[i][1]] << endl;
+        }else cout << sum[b[i][1]]-sum[b[i][0]-1] << endl;
+        
+    }
+    
 
     return 0;
 }
