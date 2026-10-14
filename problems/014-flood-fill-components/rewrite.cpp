@@ -3,6 +3,7 @@
 #include <queue>
 #include <algorithm>
 
+
 using namespace std;
 typedef vector<vector<char> > mapp;
 typedef vector<vector<bool> > visited;
@@ -50,6 +51,7 @@ int main(){
                 node tmp;
                 tmp.x=i;tmp.y=j;tmp.dots=0;
                 pipe.push(tmp);
+                mapps[i][j]=1;
                 ans.push(bfs(maps,mapps));
             }else continue;
         }
