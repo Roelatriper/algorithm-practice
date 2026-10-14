@@ -59,7 +59,7 @@
 
 ## 编码练习
 
-题面见 `../problems/014-flood-fill-components/statement.md`。完成建模后开始计时，保存真实 attempt，并自行提交至少三组合法测试的输入、预期和理由。25 分钟无有效进展时提交卡点并领取提示。
+题面见 `../problems/course/014-flood-fill-components/statement.md`。完成建模后开始计时，保存真实 attempt，并自行提交至少三组合法测试的输入、预期和理由。25 分钟无有效进展时提交卡点并领取提示。
 
 ## 后续验证范围
 

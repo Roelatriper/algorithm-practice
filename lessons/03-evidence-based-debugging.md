@@ -29,7 +29,7 @@
 在仓库根目录执行：
 
 ```sh
-./scripts/debug.sh problems/014-flood-fill-components/rewrite.cpp
+./scripts/debug.sh problems/course/014-flood-fill-components/rewrite.cpp
 ```
 
 然后输入失败地图。脚本自动编译并运行，二进制放入 ignored `.build/debug/`。也可在命令最后追加输入文件路径。CXX 环境变量可指定编译器，默认 c++；使用严格 C++03，沿用当前授课语法约束。
@@ -43,7 +43,7 @@
 
 ## 本机实践与交接
 
-- 原稿保存在 `problems/014-flood-fill-components/attempt-2026-10-12-2026.cpp`，工作文件 rewrite.cpp 保持学生内容。
+- 原稿保存在 `problems/course/014-flood-fill-components/attempts/attempt-2026-10-12-2026.cpp`，工作文件 rewrite.cpp 保持学生内容。
 - 本机可重复检查命令：`python3 .build/flood-fill-debug-2026-10-12/check.py`。它每次重编译工作文件，检查原输入、最小输入及题面样例。首次运行结果 FAIL、FAIL、PASS，脚本退出 1。
 - `.build/` 不参与同步；其他设备按本文的三个输入重建检查即可。
 - LLDB 已安装且可以设置 main 断点，但本次启动进程失败，提示 `process exited with status -1 (no such process)`；未获得断点停住或单步成功证据。本轮使用检查器及定向输出完成定位。
@@ -65,7 +65,7 @@
 
 VS Code 会替换这些占位符：`${workspaceFolder}` 是打开的仓库根目录，`${file}` 是当前活动文件的完整路径，`${fileBasenameNoExtension}` 是当前文件名去掉扩展名，例如 rewrite。
 
-当前普通 task 的 command 是 build.sh，断点调试 task 的 command 是 build-debug.sh，两者的 args 都是当前文件路径。断点任务等价于在仓库根目录执行 `./scripts/build-debug.sh problems/014-flood-fill-components/rewrite.cpp`，由脚本设置 -g/-O0 等编译选项。10-12 收尾时改为两个脚本，build.sh 保留原来的单参数接口。
+当前普通 task 的 command 是 build.sh，断点调试 task 的 command 是 build-debug.sh，两者的 args 都是当前文件路径。断点任务等价于在仓库根目录执行 `./scripts/build-debug.sh problems/course/014-flood-fill-components/rewrite.cpp`，由脚本设置 -g/-O0 等编译选项。10-12 收尾时改为两个脚本，build.sh 保留原来的单参数接口。
 
 launch 的常用选项：`MIMode: lldb` 使用当前 Mac 的 LLDB；`stopAtEntry: true` 启动后先停在 main 入口；`externalConsole: true` 打开交互输入终端；`cwd` 是程序运行时的工作目录；`args` 是程序命令行参数，本题地图通过终端的标准输入读入，因此 args 留空。
 

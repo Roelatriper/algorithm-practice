@@ -15,7 +15,7 @@
 在仓库根目录运行：
 
 ```bash
-./scripts/run.sh dp.cpp
+./scripts/run.sh problems/course/000-initial-diagnostic/dp.cpp
 ```
 
 输入 `5`，记录三件事：是否成功编译、实际输出、终端显示的编译器名称。若失败，保留完整错误信息交给教师，不要先随机修改环境。
@@ -55,7 +55,7 @@
 
 ## 课堂任务 A：分析旧代码
 
-阅读 `区间调度贪心.cpp`，回答：
+阅读 `problems/course/000-initial-diagnostic/区间调度贪心.cpp`，回答：
 
 1. `tmp` 数组保存的是什么？
 2. `calc` 为什么保存的是排序后的位置，而不是原始区间编号？
@@ -72,11 +72,11 @@
 - 正确处理 `n = 0`。
 - 通过自己设计的至少五组测试。
 
-先在新目录 `problems/006-interval-scheduling-rewrite/attempt.cpp` 中独立完成。需要帮助时告诉教师希望使用的提示等级。
+先在新目录 `problems/course/006-interval-scheduling-rewrite/attempt.cpp` 中独立完成。需要帮助时告诉教师希望使用的提示等级。
 
 ## 课堂任务 C：理解当前迷宫代码
 
-只分析 `bfs.cpp`，暂时不重写。找出：
+只分析 `problems/course/000-initial-diagnostic/bfs.cpp`，暂时不重写。找出：
 
 - 第一次递归调用发生在边界判断之前还是之后？
 - 哪一行会阻止程序反复访问同一个格子？如果没有，写“没有”。
@@ -88,5 +88,5 @@
 - 编译体检成功，或能根据完整错误信息定位环境问题。
 - 能正确回答旧代码分析问题。
 - 区间调度重写通过自造测试且无编译警告。
-- 能准确解释当前 `bfs.cpp` 不属于 BFS 的原因。
+- 能准确解释初始诊断中的 `bfs.cpp` 不属于 BFS 的原因。
 - 教师已新增本次 session 记录并更新 `course/STATE.md`。

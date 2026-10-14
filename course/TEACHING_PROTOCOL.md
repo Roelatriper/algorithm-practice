@@ -41,6 +41,9 @@
 
 ## 代码文件约定
 
-- `attempt.cpp`：学生真实作答，保留历史。
+- 题目根目录只保留稳定入口：`statement.md`、`attempt.cpp`、`solution.cpp`、`review.md`；不存在的角色可以省略。
+- `attempt.cpp`：学生首次或基线真实作答，不用订正版覆盖。
 - `solution.cpp`：学生订正后的最终版本或明确标注的教师参考实现。
 - `review.md`：记录用时、最高提示等级、第一错误点、最小反例、24 小时重写和 7 天迁移结果。
+- 有独立意义的后续真实作答放入 `attempts/attempt-YYYY-MM-DD-HHMM.cpp`；测试记录放入 `tests/`，阶段解答放入 `solutions/`，迁移题放入 `variants/`。不要把每次无实质变化的保存都升级成新快照。
+- 整场比赛题面只放入 `problems/contests/`；在线题库独立作答放入 `problems/online-judges/<platform>/`，避免与当前课程题混在同一层。
