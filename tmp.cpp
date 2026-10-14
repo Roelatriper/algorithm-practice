@@ -6,30 +6,28 @@
 #include <algorithm>
 #define ll long long
 using namespace std;
+struct node{
+    int penalty,score,id;
+};
+bool cmp(const node& a,const node&b){
+    if(a.score==b.score){
+        if(a.penalty==b.penalty){
+            return a.id > b.id;
+        }else return (a.penalty < b.penalty);
+    }else return a.score > b.score;
+}
 
 int main(){
-    ll int t;
-    cin >> t;
-    vector<ll int> a(t),b(t),p(t),fin_ans(t);
-    for(ll int i=0;i<t;i++){
-        cin >> a[i] >> b[i] >> p[i];
-        ll int base=a[i],exp=b[i],res=1;
-        while(exp!=0){
-            if(exp%2==0){
-                base%=p[i];
-                exp/=2;base=(base*base)%p[i];
-            }else{
-                exp-=1;res*=base;
-                res%=p[i];
-            }
-        }fin_ans[i]=res%p[i];
+    int a;
+    cin >> a;
+    vector<node> str(a);
+    for(int i=0;i<a;i++){
+        cin >> str[i].score >> str[i].penalty;
+        str[i].id=i+1;
+    }sort(str.begin(),str.end(),cmp);
+    for(int i=0;i<a;i++){
+        cout << str[i].id << endl;
     }
-    for(ll int i=0;i<t;i++){
-        cout << fin_ans[i] << endl;
-    }
-    
-
-
 
     return 0;
 }
