@@ -8,6 +8,8 @@
 2. 再读 [`course/STUDENT_PROFILE.md`](course/STUDENT_PROFILE.md) 与 [`course/TEACHING_PROTOCOL.md`](course/TEACHING_PROTOCOL.md)：长期约束和教学规则。
 3. 题目统一从 [`problems/README.md`](problems/README.md) 进入，不直接把 `problems/` 的文件数量当作待办数量。
 
+训练统计网页的源码位于 [`stats/index.html`](stats/index.html)，由 GitHub Pages workflow 将 `stats/` 目录作为站点根目录发布。
+
 ## 目录职责
 
 ```text
