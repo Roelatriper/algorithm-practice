@@ -23,7 +23,7 @@ int main(){
         b[i][0]-=1;b[i][1]-=1;
     }
     for(int i=0;i<q;i++){
-        if(b[i][0]==b[i][1]){cout << 0 << endl;continue;}
+        if(b[i][0]==b[i][1]){cout << a[b[i][0]] << endl;continue;}
         if(b[i][0]==0){
             cout << sum[b[i][1]] << endl;
         }else cout << sum[b[i][1]]-sum[b[i][0]-1] << endl;
