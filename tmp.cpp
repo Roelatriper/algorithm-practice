@@ -9,27 +9,33 @@ using namespace std;
 
 
 int main(){
-    int n,q;
+    int n,q,left=0,right,mid=0;
     cin >> n >> q;
-    vector<int> a(n);
-    vector<int> sum(n);
+    mid=n;right=n;
+    vector<int> s(n);
+    vector<int> query(q);
     for(int i=0;i<n;i++){
-        cin >> a[i];
-        sum[i]=((i!=0)?sum[i-1]:0)+a[i];
-    }
-    vector<vector<int> > b(q,vector<int>(2));
-    for(int i=0;i<q;i++){
-        cin >> b[i][0] >> b[i][1];
-        b[i][0]-=1;b[i][1]-=1;
+        cin >> s[i];
     }
     for(int i=0;i<q;i++){
-        if(b[i][0]==b[i][1]){cout << a[b[i][0]] << endl;continue;}
-        if(b[i][0]==0){
-            cout << sum[b[i][1]] << endl;
-        }else cout << sum[b[i][1]]-sum[b[i][0]-1] << endl;
-        
+        cin >> query[i];
     }
-    
+    vector<int> buffer(q);
+    for(int tmp=0;tmp<q;tmp++){
+        while(left<right){
+            if(mid%2==0){
+                mid/=2;
+                if(s[mid]==query[tmp]){buffer[tmp]=mid+1;break;}
+                else{
+                    s[mid] < query[tmp] ? left=mid : right=mid;
+                    mid=right-left;
+                    continue;
+                }
+            }else mid-=1;
+        }
+        buffer[tmp]=-1;
+    }
+    for(int i=0;i<q;i++){if(buffer[i]!=-1)cout << "YES" << endl;else cout << "NO" << endl;}
 
     return 0;
 }
