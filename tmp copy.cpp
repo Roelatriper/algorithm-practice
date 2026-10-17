@@ -3,13 +3,18 @@
 #include <iostream>
 #include <vector>
 #include <queue>
+#include "math.h"
 #include <algorithm>
 #define ll long long
 using namespace std;
 
 
 int main(){
-    int i=2,j=3,k=5;
-    cout << i++ -1 << " " << j << " " << k << endl;
-    return 0;
+    double x;
+    freopen("myfile.txt","w",stdin);
+    char s[1024];
+    while(fgetc(s)!=NULL){
+        if()
+    }
+    printf("%.4f",ans);
 }

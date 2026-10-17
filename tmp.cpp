@@ -1,4 +1,4 @@
-//tmp file.the code could be changed at any time.plz backup important code before it change.
+//i file.the code could be changed at any time.plz backup important code before it change.
 
 #include <iostream>
 #include <vector>
@@ -11,7 +11,7 @@ using namespace std;
 int main(){
     int n,q,left=0,right,mid=0;
     cin >> n >> q;
-    mid=n;right=n;
+    
     vector<int> s(n);
     vector<int> query(q);
     for(int i=0;i<n;i++){
@@ -20,22 +20,27 @@ int main(){
     for(int i=0;i<q;i++){
         cin >> query[i];
     }
-    vector<int> buffer(q);
-    for(int tmp=0;tmp<q;tmp++){
-        while(left<right){
-            if(mid%2==0){
-                mid/=2;
-                if(s[mid]==query[tmp]){buffer[tmp]=mid+1;break;}
-                else{
-                    s[mid] < query[tmp] ? left=mid : right=mid;
-                    mid=right-left;
-                    continue;
-                }
-            }else mid-=1;
+    vector<bool> buffer(q);
+    for(int i=0;i<q;i++){
+        left=0;right=n-1;
+        
+        while(left<=right){
+            mid=(left+right)/2;
+            if(s[mid]==query[i]){
+                buffer[i]=1;
+                break;
+            }
+            if(s[mid]>query[i]){
+                right=mid-1;
+            }
+            if(s[mid]<query[i]){
+                left=mid+1;
+            }
         }
-        buffer[tmp]=-1;
     }
-    for(int i=0;i<q;i++){if(buffer[i]!=-1)cout << "YES" << endl;else cout << "NO" << endl;}
+    for(int i=0;i<q;i++){
+        if(buffer[i]==0)cout << "NO" << endl;
+        else cout << "YES" << endl;}
 
     return 0;
 }
