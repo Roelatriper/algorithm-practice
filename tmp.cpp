@@ -9,38 +9,19 @@ using namespace std;
 
 
 int main(){
-    int n,q,left=0,right,mid=0;
-    cin >> n >> q;
-    
-    vector<int> s(n);
-    vector<int> query(q);
+    int n,target,left=0;
+    cin >> n >> target;
+    int right=n-1;
+    vector<int> a(n);
     for(int i=0;i<n;i++){
-        cin >> s[i];
+        cin >> a[i];
+    } 
+    while(left<right){
+        if(a[left]+a[right]==target){
+            cout << "YES" << endl;
+            return 0;
+        }else a[left]+a[right]>target ? right-=1 : left+=1;
     }
-    for(int i=0;i<q;i++){
-        cin >> query[i];
-    }
-    vector<bool> buffer(q);
-    for(int i=0;i<q;i++){
-        left=0;right=n-1;
-        
-        while(left<=right){
-            mid=(left+right)/2;
-            if(s[mid]==query[i]){
-                buffer[i]=1;
-                break;
-            }
-            if(s[mid]>query[i]){
-                right=mid-1;
-            }
-            if(s[mid]<query[i]){
-                left=mid+1;
-            }
-        }
-    }
-    for(int i=0;i<q;i++){
-        if(buffer[i]==0)cout << "NO" << endl;
-        else cout << "YES" << endl;}
-
+    cout << "NO" << endl;
     return 0;
 }
