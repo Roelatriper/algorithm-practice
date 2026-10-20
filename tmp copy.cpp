@@ -3,18 +3,28 @@
 #include <iostream>
 #include <vector>
 #include <queue>
-#include "math.h"
+#include <cmath>
 #include <algorithm>
 #define ll long long
 using namespace std;
 
 
 int main(){
-    double x;
-    freopen("myfile.txt","w",stdin);
-    char s[1024];
-    while(fgetc(s)!=NULL){
-        if()
+    int n,sum=0,len=0,goal,beg=0;
+    cin >> n >> goal;
+    vector<int> a(n);
+    for(int i=0;i<n;i++){cin >> a[i];}
+    for(int i=0;i<n;i++){
+        sum+=a[i];len++;
+        if(sum>=goal){
+            for(int j=beg;sum>=goal;j++){
+                if()
+                sum-=a[j];len--;
+                beg=j;
+            }
+        }
     }
-    printf("%.4f",ans);
+    cout << len << endl;
+    return 0;
 }
+
