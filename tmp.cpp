@@ -1,28 +1,15 @@
-//tmp file.the code could be changed at any time.plz backup important code before it change.
-
-#include <iostream>
-#include <algorithm>
-#include <vector>
-#include <queue>
-#include <stack>
-
-using namespace std;
+#include "stdio.h"
 
 int main(){
-    int n,k,ans,sum=0;
-    cin >> n >> k;
-    vector<int> a(n);
-    for(int i=0;i<n;i++){
-        cin >> a[i];
-    }
-    for(int i=0;i<n;i++){
-        if(i-k>=0)sum-=a[i-k];
-        sum+=a[i];
-        if(i<(k-1))continue;
-        if(i==(k-1)){ans=sum;continue;}
-        if(i>(k-1) && ans<sum)ans=sum;
-    }
-    cout << ans << endl;
-
-    return 0;
+  char ch;
+  int letters=0,space=0,digit=0,other=0;
+  while((ch=getchar())!='\n'){
+    if((ch>='a' && ch<='z')||(ch>='A'&&ch<='Z'))letters++;
+    else if(ch==' ')space++;
+    else if(ch>='0' && ch<='9')digit++;
+    else other++;
+  }
+  printf("letters=%d;space=%d;digit=%d;other=%d\n",letters,space,digit,other);
+  
+  return 0;
 }
