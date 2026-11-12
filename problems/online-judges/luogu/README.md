@@ -8,5 +8,7 @@
 | [`P1104-birthday/`](P1104-birthday/) | 日期与多关键字排序 |
 | [`P1909-pencil-purchase/`](P1909-pencil-purchase/) | 枚举与贪心 |
 | [`P5015-title-count/`](P5015-title-count/) | 字符串整行输入 |
+| [`P1162-fill-color/`](P1162-fill-color/) | 洪水填充：从外部虚拟边界/多源起点灌入 |
+| [`P1443-horse-traversal/`](P1443-horse-traversal/) | 网格 BFS 求最短步数与距离数组 |
 
 目录存在只表示曾经作答或用于课程诊断；当前是否复查以 [`../../../course/STATE.md`](../../../course/STATE.md) 为准。
