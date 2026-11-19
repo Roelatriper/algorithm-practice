@@ -28,3 +28,5 @@
 /problems/**/attempt
 /problems/**/stack-version
 /problems/**/rewrite-*
+count_of_primes.cpp
+sum_of_factors.cpp
