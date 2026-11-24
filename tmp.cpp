@@ -1,37 +1,27 @@
 #include <iostream>
 #include <vector>
-#include <cstdlib>
 
 using namespace std;
-int istrue(const void *a,const void *b){
-  int tmp_1 = *(const int*)a;
-  int tmp_2 = *(const int*)b;
-  return (tmp_1<tmp_2)-(tmp_1>tmp_2);
-}
 
 int main(){
-  int n;
-  cin >> n;
-	vector<int> a(n);5
-  for(int i=0;i<n;i++)cin >> a[i];
-  qsort(a.data(),n,sizeof(int),istrue);
-  cout << a[0] << " " << a[1] << endl;
-  
-  
+  string a,b;
+  bool istrue=1;
+  getline(cin,a);
+  getline(cin,b);
+  for(int i=0;i<a.size();i++){
+    if(a[i++]==b[0]){
+      istrue=1;
+      for(int j=1;j<b.size();j++){
+        if(a[i++]!=b[j]){
+          istrue=0;
+        }
+      }if(istrue){
+        cout << "the pattern string:" << b << "is in the target string: " << a << ", the location is: " << i << endl;
+        return 0;
+      }
+    }
+  }
+ 	cout << "the pattern string is not " << b <<  " in the target string" << a << endl;
   
   return 0;
 }
-
-
-
-/*
-int cmp_int(const void* a,const void* b){
-  int x=*(const int*)a;
-  int y=*(const int*)b;
-  return (x>y) - (y<x);
-}
-
-  int n;
-  int a[100];
-  qsort(&a,100,sizeof(int),cmp_int);
-*/
